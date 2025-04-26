@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Clock by Continent (Moment.js)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+
+    <style>
+        @font-face {
+        font-family: 'Digital-7';
+        src: url('./fonts/digital-7.ttf') format('truetype');
+        }
+
+        .digital-clock {
+        font-family: 'Digital-7', monospace;
+        }
+
+        /* Light & Dark mode global styles */
+    .light {
+        background-color: #f4f4f4;
+        color: #1f2937;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .dark {
+        background-color: #000000;
+        color: #3B82F6 ;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Cards styles */
+    .clock-card {
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Light mode cards */
+    .light .clock-card {
+        background-color: #e5e7eb;
+        color: #1f2937;
+    }
+
+    /* Dark mode cards */
+    .dark .clock-card {
+        background-color: #1f2937;
+        color: #3B82F6 ;
+    }
+
+    /* Hover effect : inverse */
+    .light .clock-card:hover {
+        background-color: #1f2937;
+        color: #3B82F6 ;
+    }
+
+    .dark .clock-card:hover {
+        background-color: #e5e7eb;
+        color: #1f2937;
+    }
+    .flag-icon {
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  .flag-icon:hover {
+    transform: scale(1.2);
+  }
+  .popup-btn {
+    background: transparent;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .popup-btn:hover {
+    transform: scale(1.2);
+    color: #2563eb; /* blue-600 */
+  }
+    </style>
+  
+  <script defer src="/app.js"></script>
+</head>
+<body class="bg-dark text-blue-500 font-mono min-h-screen flex flex-col items-center justify-start py-10 dark">
+  <h1 class="text-3xl mb-8">🌍 Time Now</h1>
+
+    <div class="mb-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Select Continent -->
+        <div class="flex items-center space-x-2">
+        <label for="continentSelect" class="text-sm text-gray-500 dark:text-gray-300">Select Continent:</label>
+        <select 
+            id="continentSelect"
+            class="px-4 py-2 bg-gray-800 text-white rounded shadow focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-white">
+            <option value="">-- Choose --</option>
+            <option value="africa">Africa 🌍</option>
+            <option value="europe">Europe 🇪🇺</option>
+            <option value="asia">Asia 🌏</option>
+            <option value="americas">Americas 🌎</option>
+            <option value="oceania">Oceania 🌊</option>
+        </select>
+        </div>
+    
+        <!-- Theme Toggle Button -->
+        <button 
+        type="button" 
+        id="themeToggle" 
+        class="flex items-center gap-2 px-4 py-2 bg-yellow-500 text-white rounded shadow hover:bg-indigo-700 transition-colors duration-300">
+        <!-- Heroicon Sun/Moon -->
+        <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 4.05l-.71.71M21 12h1M3 12H2m16.24 7.07l-.71-.71M4.05 19.95l-.71-.71M12 5a7 7 0 110 14a7 7 0 010-14z" />
+        </svg>
+        <span>Toggle Theme</span>
+        </button>
+    </div>
+  
+
+  <div id="clockContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-4"></div>
+
+  <!-- POPUP FULLSCREEN -->
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-95 flex flex-col items-center justify-center hidden z-50">
+        <div class="absolute top-4 right-4 flex space-x-4 text-white text-2xl">
+            <button id="shareBtn" title="Share">🔗</button>
+            <button id="zoomInBtn" title="Zoom In">➕</button>
+            <button id="zoomOutBtn" title="Zoom Out">➖</button>
+            <button id="fullscreenBtn" title="Fullscreen">🖥️</button>
+            <button id="closeBtn" title="Close">❌</button>
+        </div>
+        <h2 id="popupCity" class="text-3xl mb-4"></h2>
+        <div id="popupTime" class="text-7xl font-bold digital-clock mb-4"></div>
+        <p id="popupDate" class="text-xl"></p>
+    </div>
+
+
+    
+  
+</body>
+</html>
