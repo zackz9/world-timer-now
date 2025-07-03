@@ -1,83 +1,92 @@
-        @font-face {
-        font-family: 'Digital-7';
-        src: url('./fonts/digital-7.ttf') format('truetype');
-        }
 
-        .digital-clock {
-        font-family: 'Digital-7', monospace;
-        }
+@font-face {
+font-family: 'Digital-7';
+src: url('./fonts/digital-7.ttf') format('truetype');
+}
+body {
+    margin: 0;
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
 
-        /* Light & Dark mode global styles */
-    .light {
-        background-color: #f4f4f4;
-        color: #1f2937;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .dark {
-        background-color: #000000;
-        color: #3B82F6 ;
-        transition: background-color 0.3s, color 0.3s;
-    }
+}
+.digital-clock {
+    font-family: 'Digital-7', monospace;
+}
 
-    /* Cards styles */
-    .clock-card {
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s, color 0.3s;
-    }
 
-    /* Light mode cards */
-    .light .clock-card {
-        background-color: #e5e7eb;
-        color: #1f2937;
-    }
+/* Light & Dark mode global styles */
+.light {
+    background-color: #f4f4f4;
+    color: #1f2937;
+    transition: background-color 0.3s, color 0.3s;
+}
+.dark {
+    background-color: #000000;
+    color: #3B82F6 ;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-    /* Dark mode cards */
-    .dark .clock-card {
-        background-color: #1f2937;
-        color: #3B82F6 ;
-    }
+/* Cards styles */
+.clock-card {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
 
-    /* Hover effect : inverse */
-    .light .clock-card:hover {
-        background-color: #1f2937;
-        color: #3B82F6 ;
-    }
-    .light .theTitle {
-        color: #1f2937;
-    }
-    .dark .clock-card:hover {
-        background-color: #e5e7eb;
-        color: #1f2937;
-    }
-    .flag-icon {
-    border-radius: 2px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-  .flag-icon:hover {
-    transform: scale(1.2);
-  }
-  .popup-btn {
-    background: transparent;
-    font-size: 1.2rem;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  .popup-btn:hover {
-    transform: scale(1.2);
-    color: #2563eb; /* blue-600 */
-  }
-     body {
-      margin: 0;
-      font-family: "Noto Sans Arabic", sans-serif;
-    }
-    .sa3a {
-        background-color: #fff;
-        color: #1e1e1e;
-    }
-    .reveal-text {
-      font-size: 10vw;
-      white-space: nowrap;
-    }
+/* Light mode cards */
+.light .clock-card {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+/* Dark mode cards */
+.dark .clock-card {
+    background-color: #1f2937;
+    color: #3B82F6 ;
+}
+
+/* Hover effect : inverse */
+.light .clock-card:hover {
+    background-color: #1f2937;
+    color: #3B82F6 ;
+}
+.light .theTitle {
+    color: #1f2937;
+}
+.dark .clock-card:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+.flag-icon {
+border-radius: 2px;
+box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+}
+.flag-icon:hover {
+transform: scale(1.2);
+}
+.popup-btn {
+background: transparent;
+font-size: 1.2rem;
+transition: transform 0.2s ease, color 0.2s ease;
+}
+.popup-btn:hover {
+transform: scale(1.2);
+color: #2563eb; /* blue-600 */
+}
+
+.sa3a {
+    background-color: #fff;
+    color: #1e1e1e;
+}
+.reveal-text {
+    font-size: 10vw;
+    white-space: nowrap;
+}
+
+#useCases h3 img {
+    width: 35px;
+    height: 35px;   
+}
