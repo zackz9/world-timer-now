@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CH7ALE F SA3A ? - WHAT TIME IS IT ? - QUELLE HEURE EST T IL ?</title>
+  <title>CH7ALE F SA3A ? - WHAT TIME IS IT ? - QUELLE HEURE EST-T-IL ?</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Moment.js -->
@@ -13,133 +13,287 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-
-    <style>
-        @font-face {
-        font-family: 'Digital-7';
-        src: url('./fonts/digital-7.ttf') format('truetype');
-        }
-
-        .digital-clock {
-        font-family: 'Digital-7', monospace;
-        }
-
-        /* Light & Dark mode global styles */
-    .light {
-        background-color: #f4f4f4;
-        color: #1f2937;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .dark {
-        background-color: #000000;
-        color: #3B82F6 ;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* Cards styles */
-    .clock-card {
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* Light mode cards */
-    .light .clock-card {
-        background-color: #e5e7eb;
-        color: #1f2937;
-    }
-
-    /* Dark mode cards */
-    .dark .clock-card {
-        background-color: #1f2937;
-        color: #3B82F6 ;
-    }
-
-    /* Hover effect : inverse */
-    .light .clock-card:hover {
-        background-color: #1f2937;
-        color: #3B82F6 ;
-    }
-
-    .dark .clock-card:hover {
-        background-color: #e5e7eb;
-        color: #1f2937;
-    }
-    .flag-icon {
-    border-radius: 2px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-  .flag-icon:hover {
-    transform: scale(1.2);
-  }
-  .popup-btn {
-    background: transparent;
-    font-size: 1.2rem;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  .popup-btn:hover {
-    transform: scale(1.2);
-    color: #2563eb; /* blue-600 */
-  }
-    </style>
-  
-  <script defer src="/app.js"></script>
+  <!-- Styles file  -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/gif" href="./assets/imgs/icon-ch7al-fsa3a.png">
+  <!-- App JS -->  
+  <script defer src="./assets/js/app.js"></script>
 </head>
-<body class="bg-dark text-blue-500 font-mono min-h-screen flex flex-col items-center justify-start py-10 dark">
-  <h1 class="text-3xl mb-8">🌍 Time Now</h1>
+<body class="bg-dark text-blue-500 font-mono min-h-screen flex flex-col items-center justify-start py-10 pb-0 dark">
+  
+  <h1 title="CH7ALE F SA3A ? - WHAT TIME IS IT ? - QUELLE HEURE EST-T-IL ?" class="text-3xl mb-8 sm:text-2xl text-center">CH7ALE F SA3A ? - WHAT TIME IS IT ? - QUELLE HEURE EST-T-IL ?</h1>
 
-    <div class="mb-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <!-- Select Continent -->
-        <div class="flex items-center space-x-2">
-        <label for="continentSelect" class="text-sm text-gray-500 dark:text-gray-300">Select Continent:</label>
-        <select 
-            id="continentSelect"
-            class="px-4 py-2 bg-gray-800 text-white rounded shadow focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-white">
-            <option value="">-- Choose --</option>
-            <option value="africa">Africa 🌍</option>
-            <option value="europe">Europe 🇪🇺</option>
-            <option value="asia">Asia 🌏</option>
-            <option value="americas">Americas 🌎</option>
-            <option value="oceania">Oceania 🌊</option>
-        </select>
-        </div>
-    
-        <!-- Theme Toggle Button -->
-        <button 
-        type="button" 
-        id="themeToggle" 
-        class="flex items-center gap-2 px-4 py-2 bg-yellow-500 text-white rounded shadow hover:bg-indigo-700 transition-colors duration-300">
-        <!-- Heroicon Sun/Moon -->
-        <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 4.05l-.71.71M21 12h1M3 12H2m16.24 7.07l-.71-.71M4.05 19.95l-.71-.71M12 5a7 7 0 110 14a7 7 0 010-14z" />
-        </svg>
-        <span>Toggle Theme</span>
-        </button>
-    </div>
+  <div class="mb-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <!-- Select Continent -->
+      <div class="flex items-center space-x-2">
+      <label for="continentSelect" class="text-xl text-cyan-600 dark:text-white">Select Continent:</label>
+      <select 
+          id="continentSelect"
+          class="px-4 py-2 bg-gray-800 text-white rounded shadow focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800 dark:text-white">
+          <option value="">-- Choose --</option>
+          <option value="africa">Africa</option>
+          <option value="europe">Europe</option>
+          <option value="asia">Asia</option>
+          <option value="americas">Americas</option>
+          <option value="oceania">Oceania</option>
+      </select>
+      </div>
+  
+      <!-- Theme Toggle Button -->
+      <button 
+      type="button" 
+      id="themeToggle" 
+      class="flex items-center gap-2 px-4 py-2 bg-cyan-500 text-black rounded shadow hover:bg-white transition-colors duration-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+      <!-- Heroicon Sun/Moon -->
+      <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 4.05l-.71.71M21 12h1M3 12H2m16.24 7.07l-.71-.71M4.05 19.95l-.71-.71M12 5a7 7 0 110 14a7 7 0 010-14z" />
+      </svg>
+      <span>Toggle Theme</span>
+      </button>
+  </div>
   
 
   <div id="clockContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-4"></div>
 
   <!-- POPUP FULLSCREEN -->
-    <div id="popup" class="fixed inset-0 bg-black bg-opacity-95 flex flex-col items-center justify-center hidden z-50">
-        <div class="absolute top-4 right-4 flex space-x-4 text-white text-2xl">
-            <button id="shareBtn" title="Share">🔗</button>
-            <button id="zoomInBtn" title="Zoom In">➕</button>
-            <button id="zoomOutBtn" title="Zoom Out">➖</button>
-            <button id="fullscreenBtn" title="Fullscreen">🖥️</button>
-            <button id="closeBtn" title="Close">❌</button>
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-95 flex flex-col items-center justify-center hidden z-50">
+      <div class="absolute top-4 right-4 flex space-x-4 text-white text-2xl">
+          <button id="shareBtn" title="Share">🔗</button>
+          <button id="zoomInBtn" title="Zoom In">➕</button>
+          <button id="zoomOutBtn" title="Zoom Out">➖</button>
+          <button id="fullscreenBtn" title="Fullscreen">🖥️</button>
+          <button id="closeBtn" title="Close">❌</button>
+      </div>
+      <h2 id="popupCity" class="text-3xl mb-4"></h2>
+      <div id="popupTime" class="text-7xl font-bold digital-clock mb-4"></div>
+      <p id="popupDate" class="text-xl"></p>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-4 py-12 bg-white mb-0 dark:bg-gray-800 shadow-lg my-8">
+        
+        <!-- En-tête principal -->
+        <header class="text-center mb-12">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-800 dark:text-gray-100 leading-tight">
+                CH7ale f sa3a ? - L'Application d'Heure Mondiale Ultime
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Découvrez l'heure exacte dans le monde entier avec notre application multilingue intuitive. 
+                "CH7ale f sa3a ?" signifie "Quelle heure est-il ?" en dialecte marocain.
+            </p>
+        </header>
+
+        <!-- Qu'est-ce que l'application -->
+        <div class="mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-gray-100 border-l-4 border-blue-500 dark:border-blue-400 pl-4">
+                Qu'est-ce que CH7ale f sa3a ?
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <strong>CH7ale f sa3a ?</strong> est une application d'horloge mondiale moderne et responsive qui affiche l'heure actuelle 
+                        dans les principales villes de tous les continents. Conçue avec une interface multilingue supportant 
+                        l'arabe, le français et l'anglais, cette application web gratuite est votre compagnon idéal pour 
+                        suivre les fuseaux horaires internationaux.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Que vous soyez un voyageur fréquent, un professionnel travaillant avec des équipes internationales, 
+                        ou simplement curieux de connaître l'heure ailleurs dans le monde, notre application vous offre 
+                        une expérience utilisateur exceptionnelle avec des fonctionnalités avancées.
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-700 dark:to-gray-600 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Couverture Mondiale</h3>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li><strong>Afrique</strong> : Lagos, Le Caire, Casablanca...</li>
+                        <li><strong>Europe</strong> : Paris, Londres, Berlin...</li>
+                        <li><strong>Asie</strong> : Tokyo, Dubaï, Singapour...</li>
+                        <li><strong>Amériques</strong> : New York, Los Angeles, São Paulo...</li>
+                        <li><strong>Océanie</strong> : Sydney, Auckland...</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <h2 id="popupCity" class="text-3xl mb-4"></h2>
-        <div id="popupTime" class="text-7xl font-bold digital-clock mb-4"></div>
-        <p id="popupDate" class="text-xl"></p>
-    </div>
 
+        <!-- Fonctionnalités principales -->
+        <div class="mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100 border-l-4 border-green-500 dark:border-green-400 pl-4">
+                Fonctionnalités Principales
+            </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Heure en Temps Réel</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Affichage précis de l'heure actuelle avec mise à jour automatique chaque seconde</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Navigation par Continent</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Sélectionnez facilement un continent pour voir les horaires de ses principales villes</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Mode Sombre/Clair</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Basculez entre les thèmes pour une expérience visuelle adaptée à vos préférences</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Vue Plein Écran</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Cliquez sur n'importe quelle horloge pour l'afficher en grand format avec options de zoom</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Design Responsive</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Interface adaptée à tous les écrans : mobile, tablette et desktop</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Partage Facile</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Partagez l'heure d'une ville spécifique avec vos contacts en un clic</p>
+                </div>
+            </div>
+        </div>
 
+        <!-- Comment utiliser l'application -->
+        <div class="mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100 border-l-4 border-purple-500 dark:border-purple-400 pl-4">
+                Comment Utiliser l'Application
+            </h2>
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-600 p-8 rounded-lg">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Démarrage Rapide</h3>
+                        <ol class="space-y-3 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">1</span>
+                                <span>Sélectionnez un continent dans le menu déroulant</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">2</span>
+                                <span>Parcourez les horloges des villes affichées</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">3</span>
+                                <span>Cliquez sur une horloge pour l'agrandir</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3 mt-0.5">4</span>
+                                <span>Utilisez les boutons de zoom et de partage</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Fonctionnalités Avancées</h3>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3">✓</span>
+                                <span><strong>Toggle Theme :</strong> Basculez entre mode clair et sombre</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3">✓</span>
+                                <span><strong>Zoom :</strong> Agrandissez/réduisez l'affichage en plein écran</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3">✓</span>
+                                <span><strong>Fullscreen :</strong> Mode plein écran pour une meilleure visibilité</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3">✓</span>
+                                <span><strong>Partage :</strong> Copiez le lien pour partager l'heure d'une ville</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cas d'usage Ch7ale f sa3a ?-->
+        <div class="mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100 border-l-4 border-orange-500 dark:border-orange-400 pl-4">
+                Cas d'Usage et Avantages
+            </h2>
+            <div class="grid sm:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">💼 Professionnels</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Coordonnez vos réunions internationales, planifiez vos appels avec des clients étrangers et gérez vos équipes distribuées dans le monde entier.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">✈️ Voyageurs</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Préparez vos voyages, évitez le décalage horaire et restez connecté avec vos proches peu importe où vous vous trouvez.</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">🎓 Étudiants</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Parfait pour les cours en ligne internationaux, les échanges universitaires et les projets collaboratifs avec des étudiants du monde entier.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">👨‍👩‍👧‍👦 Familles</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Restez en contact avec votre famille et vos amis à l'étranger en connaissant toujours le bon moment pour les appeler.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pourquoi choisir cette app -->
+        <div class="mb-12">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100 border-l-4 border-red-500 dark:border-red-400 pl-4">
+                Pourquoi Choisir CH7ale f sa3a ?
+            </h2>
+            <div class="bg-gradient-to-r from-red-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 p-8 rounded-lg">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Rapide & Léger</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Application web ultra-rapide sans installation requise</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Sécurisé & Privé</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Aucune collecte de données personnelles, utilisation 100% privée</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Gratuit & Accessible</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Totalement gratuit, accessible depuis n'importe quel navigateur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center bg-gradient-to-r from-blue-500 to-cyan-600 p-8 text-white">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
+                Prêt à Explorer d'autres projets ?
+            </h2>
+            <p class="text-lg mb-6 opacity-90 hidden">
+                Commencez dès maintenant avec CH7ale f sa3a ? et ne manquez plus jamais un rendez-vous international !
+            </p>
+            <a class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg" href="https://snipercar.me/all-projects/">
+                Découvrir plus
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Section technique -->
+    <section class="max-w-4xl mx-auto px-4 py-8 text-sm text-gray-600 dark:text-gray-400 hidden">
+        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
+            <h3 class="font-semibold mb-4 text-gray-800 dark:text-gray-100">Informations Techniques</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-medium mb-2 text-gray-700 dark:text-gray-200">Technologies Utilisées</h4>
+                    <ul class="space-y-1">
+                        <li>HTML5 sémantique responsive</li>
+                        <li>CSS3 avec Tailwind CSS</li>
+                        <li>JavaScript vanilla moderne</li>
+                        <li>API de géolocalisation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-2 text-gray-700 dark:text-gray-200">Compatibilité</h4>
+                    <ul class="space-y-1">
+                        <li>Tous navigateurs modernes</li>
+                        <li>Mobile, tablette, desktop</li>
+                        <li>Support PWA</li>
+                        <li>Fonctionne hors ligne</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
     
   
 </body>

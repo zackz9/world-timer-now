@@ -104,7 +104,7 @@ const shareBtn = document.getElementById('shareBtn');
 let currentTimezone = '';
 let currentFontSize = 7;
 
-// 🎉 GÉNÉRATION DES CARTES
+// GÉNÉRATION DES CARTES
 select.addEventListener('change', () => {
   container.innerHTML = '';
   const continent = select.value;
@@ -163,7 +163,7 @@ select.addEventListener('change', () => {
   updateTime();
 });
 
-// 🕒 MISE À JOUR DES HORLOGES
+// MISE À JOUR DES HORLOGES
 function updateTime() {
   const continent = select.value;
   if (!continent) return;
@@ -181,13 +181,13 @@ function updateTime() {
   requestAnimationFrame(updateTime);
 }
 
-// 🟢 ACTIVATION PAR DÉFAUT : AFRIQUE
+// ACTIVATION PAR DÉFAUT : AFRIQUE
 window.addEventListener('DOMContentLoaded', () => {
   select.value = 'africa';
   select.dispatchEvent(new Event('change'));
 });
 
-// 🎬 POPUP LOGIC
+// POPUP LOGIC
 function openPopup(city, timezone) {
   currentTimezone = timezone;
   popupCity.textContent = city;
@@ -233,7 +233,7 @@ function updatePopupClock() {
   requestAnimationFrame(updatePopupClock);
 }
 
-// 🎨 THEME TOGGLE (LIGHT / DARK)
+// THEME TOGGLE (LIGHT / DARK)
 const themeToggle = document.getElementById('themeToggle');
 themeToggle.addEventListener('click', () => {
   if (body.classList.contains('dark')) {
@@ -251,7 +251,7 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
-// 👉 Popup buttons delegation
+// Popup buttons delegation
 container.addEventListener('click', (e) => {
   if (e.target.classList.contains('popup-btn')) {
     const city = e.target.dataset.city;

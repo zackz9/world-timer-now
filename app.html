@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الساعة لله</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans Arabic", sans-serif;
+    }
+    .sa3a {
+        background-color: #fff;
+        color: #1e1e1e;
+    }
+    .reveal-text {
+      font-size: 10vw;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="w-screen h-screen flex items-center justify-center overflow-hidden sa3a">
+    <h1 class="reveal-text">الساعة لله</h1>
+  </section>
+
+  <script>
+    gsap.from(".reveal-text", {
+      duration: 2,
+      scale: 3,
+      opacity: 0,
+      ease: "power3.out",
+    });
+  </script>
+
+</body>
+</html>
