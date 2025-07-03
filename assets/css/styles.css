@@ -45,7 +45,9 @@
         background-color: #1f2937;
         color: #3B82F6 ;
     }
-
+    .light .theTitle {
+        color: #1f2937;
+    }
     .dark .clock-card:hover {
         background-color: #e5e7eb;
         color: #1f2937;
